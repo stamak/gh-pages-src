@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: single
 title:  "ALB Ingress Controller and Cost Optimization"
 date:   2023-04-16 23:40:28 +0300
-categories: aws, alb, k8s, ingress
+tags: [aws, k8s, alb]
+categories: [aws, alb, k8s, ingress]
 ---
 
 As we know ALB Ingress Controller creates Load Balancer per k8s ingress resource by default and it's costly,

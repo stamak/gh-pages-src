@@ -1,45 +1,49 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
-title: DevOps engineer's notes
-#email: stas.makar@gmail.com
+title: DevOps Notes
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is DevOps notes, helpful notes about DevOps stuff such as Clouds(AWS, GCP), Infrastructure as Code (IaC), Kubernetes
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://stamak.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-lang: en-US
-languages: ["en-US", "uk-UA"]
-twitter_username: jekyllrb
-github_username:  stamak
-linkedin_username: stanislav-makar
 
 # Build settings
-#theme: just-the-docs
-theme: jekyll-theme-basically-basic
-#theme: minima
+theme: minimal-mistakes-jekyll
+
+##### minimal-mistakes-jekyll config
+minimal_mistakes_skin: dark
+
+author:
+  name: "Stanislav Makar"
+  avatar: "/assets/bio-photo.png"
+  location: Lviv, Ukraine
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/stamak"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/stanislav-makar"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      author_profile: true
+      read_time: true
+      share: true
+
+# Analytics
+analytics:
+  provider: google-gtag
+  google:
+    tracking_id: G-26K9QK19YL
+#####
+
 plugins:
   - jekyll-feed
 
-aginate: 5  # amount of posts to show per page
+paginate: 5  # amount of posts to show per page
 paginate_path: /page:num/
 
 # Exclude from processing.
@@ -50,7 +54,8 @@ paginate_path: /page:num/
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - Makefile
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/

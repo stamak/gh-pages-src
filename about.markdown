@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: single
 title: About
 permalink: /about/
 ---
 
-I am Stanislav and here I am sharing my notes regarding DevOps, Clouds and etc.
+Greetings, I'm Stanislav, happy to share my notes, hope they're helpful.

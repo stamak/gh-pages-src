@@ -22,12 +22,16 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
    - Cons: Potential cascading failures, longer overall downtime for large infrastructures.
    - Use cases: Simple applications, low-impact updates, risk-averse environments.
 
+   ![Rolling Deployment](/assets/Rolling.png){:height="700px" width="400px"}
+
 2. **Blue-Green Deployments**
 
    Utilizes two identical environments (blue and green). Traffic shifts to the green environment after validation in the blue environment.
    - Pros: Zero downtime, quick rollback, ideal for stateless applications.
    - Cons: Requires double the infrastructure, complex setup, not suitable for stateful applications.
    - Use cases: Microservices architectures, high-traffic applications, frequent deployments.
+
+   ![Blue-Green Deployment](/assets/Blue-Green.png){:height="700px" width="400px"}
 
 3. **Canary Deployments**
 
@@ -36,6 +40,8 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
    - Cons: Requires traffic routing mechanisms, potential performance overhead.
    - Use cases: Risky changes, large user base, feature experimentation.
 
+   ![Canary Deployment](/assets/Canary.png){:height="700px" width="400px"}
+
 4. **Cluster Immune System (CIS)**
 
    Extention of Canary Deployments, CIS focuses on enhanced monitoring and automated rollback within the existing production environment.
@@ -43,12 +49,16 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
    - Cons: Defining critical metrics, setting thresholds, handling false positives.
    - Use cases: Applications requiring real-time feedback and rapid response to potential issues.
 
+   ![Cluster Immune System](/assets/ClusterImmuneSystem.png){:height="700px" width="400px"}
+
 5. **Feature Toggle (a.k.a. feature flag, feature switch)**
 
    Enables or disables features dynamically using configuration flags, offering flexibility and control.
    - Pros: Gradual feature rollout, A/B testing, safer deployments.
    - Cons: Increased complexity, potential performance overhead.
    - Use cases: Gradual feature rollout, phased experimentation, managing dependencies.
+
+   ![Feature Toggle](/assets/FeatureToggle.png){: .align-center; height="700px" width="400px"}
 
 ## Emerging Trends
 

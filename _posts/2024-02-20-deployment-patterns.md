@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Modern Deployment Patterns overview"
+title:  "Modern Deployment Patterns"
 date:   2024-02-20 18:40:28 +0300
 tags: [DevOps, Deployment, Architecture]
 ---

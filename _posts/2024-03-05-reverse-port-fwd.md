@@ -11,8 +11,16 @@ tags: [devops, k8s, kubernetes, port-forward, reverse, ssh, netcat, kubectl, net
 Sometimes you need to connect from a service running in a Kubernetes cluster to a service running on your local machine. This can be useful for debugging, testing, or development purposes. In this article, we'll explore how to set up reverse port forwarding to enable this kind of connection.
 
 ## High-Level Architecture
-
 ![Reverse Port Forwarding](/assets/RvrsPortFwd.png){:height="1700px" width="700px"}
+As shown in the diagram, the service running in the Kubernetes cluster needs to connect to a service running on your local machine.
+
+The `kubectl port-forward` command is used to forward a local port to the ssh server pod running in the Kubernetes cluster.
+
+The ssh server pod is used to establish a reverse port forwarding tunnel to the local machine.
+
+The `Alpine Linux` is used as a base image for the ssh server pod.
+
+For testing purposes, a simple `netcat` service is used to listen on a port on the local machine, and a test pod is used to connect to this service with `netcat` client through the reverse port forwarding tunnel.
 
 ## Kubernetes Resources Congifurations
 Prepare the following configurations to deploy the resources in the Kubernetes cluster.
@@ -22,7 +30,7 @@ Prepare the following configurations to deploy the resources in the Kubernetes c
 mkdir k8s-manifests
 cd k8s-manifests
 {% endhighlight %}
-
+___
  Pod Configuration
 {% highlight shell %}
 cat <<EOF > pod.yml
@@ -49,7 +57,7 @@ spec:
           protocol: TCP
 EOF
 {% endhighlight %}
-
+___
  Service Configuration
 {% highlight shell %}
 cat <<EOF > svc.yml
@@ -66,7 +74,7 @@ spec:
       targetPort: 50080
 EOF
 {% endhighlight %}
-
+___
  Test pod configuration
 {% highlight shell %}
 cat <<EOF > test-pod.yml
@@ -83,7 +91,7 @@ spec:
       command: ["sh", "-c", "apk add netcat-openbsd; while true; do sleep 1; done"]
 EOF
 {% endhighlight %}
-
+___
  Deploy the resources
 {% highlight shell %}
 stamak@local-dev:~/k8s-manifests$ ls -la
@@ -98,33 +106,40 @@ pod/reverse-port-forward created
 service/fwd-to-local-dev created
 pod/test-pod created
 {% endhighlight %}
-
+___
 ## Setting up the Reverse Port Forwarding
 To set up the reverse port forwarding, you need to run the following command on your local machine:
 
- [Terminal 1] Forward the local port 8022 to the ssh server pod
+**[Terminal 1]** Forward the local port 8022 to the ssh server pod
+
 {% highlight shell %}
 kubectl port-forward pod/reverse-port-forward 8022:22
 {% endhighlight %}
+___
 
- [Terminal 2] Start locally service listening on port 8080 or netcat in my case
+**[Terminal 2]** Start locally service listening on port 8080 or `netcat` in my case
+
 {% highlight shell %}
 nc -l 8080
 {% endhighlight %}
+___
 
- [Terminal 3] Open a reverse ssh tunnel to the ssh server pod
-password: dummy_passwd
+**[Terminal 3]** Open a reverse ssh tunnel to the ssh server pod
+
+Password: `dummy_passwd`
 {% highlight shell %}
 ssh -R 50080:localhost:8080 root@localhost -p 8022 -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null
 {% endhighlight %}
+___
 
-## [Terminal 4] Testing the Connection
+**[Terminal 4]** Testing the Connection
+
 To test the connection, you can run the following command in the test pod:
-
 {% highlight shell %}
 kubectl exec -it test-pod -- sh
 / # nc fwd-to-local-dev 8080
 {% endhighlight %}
+___
 
 ## Screen Shot
 ![ScreenShot](/assets/RvrsPortFwdScreen.png){:height="1700px" width="700px"}

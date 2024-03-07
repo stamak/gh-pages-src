@@ -156,3 +156,8 @@ ___
 
 ## Screen Shot
 ![ScreenShot](/assets/RvrsPortFwdScreen2.png){:height="1700px" width="700px"}
+
+## Additional Resources
+- [Kubernetes Port Forwarding](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
+- [SSH Remote Forwarding](https://www.ssh.com/academy/ssh/tunneling-example#remote-forwarding)
+- [Netcat](https://www.tecmint.com/netcat-nc-command-examples/)

@@ -154,4 +154,4 @@ kubectl exec -it test-pod -- sh
 ___
 
 ## Screen Shot
-![ScreenShot](/assets/RvrsPortFwdScreen.png){:height="1700px" width="700px"}
+![ScreenShot](/assets/RvrsPortFwdScreen2.png){:height="1700px" width="700px"}

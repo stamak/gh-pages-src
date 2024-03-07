@@ -124,10 +124,11 @@ kubectl port-forward pod/reverse-port-forward 8022:22
 {% endhighlight %}
 ___
 
-**[Terminal 2]** Start locally service listening on port `8080` or `netcat` in my case
+**[Terminal 2]** Start locally service listening on port or `netcat` in my case
 
-*NOTE*: `8080` port is port where your local service is listening on.
-You can replace it with the port your service is listening on.
+*NOTE*: `8080` port is port where my netcat service is listening on.
+Just skip this step if you already have a service running on your local machine.
+Please do not forget to replace the port number in the next step with the port your service is listening on.
 {% highlight shell %}
 nc -l 8080
 {% endhighlight %}

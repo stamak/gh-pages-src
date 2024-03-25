@@ -15,7 +15,17 @@ In the fast-paced world of software development, efficient and reliable deployme
 
 Selecting the optimal deployment pattern hinges on various factors, including application architecture, infrastructure setup, and business goals. Each pattern offers distinct advantages and trade-offs:
 
-1. **Rolling Deployments**
+1. **In-place (a.k.a. Recreate, All at once) Deployments**
+
+   A straightforward approach where the existing environment is replaced with the new version.
+   - Pros: Simple implementation, suitable for monolithic applications, risk-averse environments.
+   - Cons: Downtime, requires maintainance window, potential data loss, slow rollback.
+   - Use cases: Small applications, low-impact updates, risk-averse environments.
+
+   ![Rolling Deployment](/assets/Recreate.png){:height="700px" width="400px"}
+
+
+2. **Rolling Deployments [WIP]**
 
    A gradual upgrade of servers one at a time, minimizing initial downtime.
    - Pros: Simple implementation, suitable for monolithic applications, risk-averse environments.
@@ -24,7 +34,7 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
 
    ![Rolling Deployment](/assets/Rolling.png){:height="700px" width="400px"}
 
-2. **Blue-Green Deployments**
+3. **Blue-Green Deployments**
 
    Utilizes two identical environments (blue and green). Traffic shifts to the green environment after validation in the blue environment.
    - Pros: Zero downtime, quick rollback, ideal for stateless applications.
@@ -33,7 +43,7 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
 
    ![Blue-Green Deployment](/assets/Blue-Green.png){:height="700px" width="400px"}
 
-3. **Canary Deployments**
+4. **Canary Deployments**
 
    A controlled rollout where the new version is gradually pushed to a small subset of users (canaries) before broader release.
    - Pros: Early detection of issues, minimal impact on majority of users, controlled rollout.
@@ -42,16 +52,16 @@ Selecting the optimal deployment pattern hinges on various factors, including ap
 
    ![Canary Deployment](/assets/Canary.png){:height="700px" width="400px"}
 
-4. **Cluster Immune System (CIS)**
+5. **Cluster Immune System (CIS)**
 
    Extention of Canary Deployments, CIS focuses on enhanced monitoring and automated rollback within the existing production environment.
    - Pros: Rapid response to issues, reduced downtime, increased confidence in deployments.
    - Cons: Defining critical metrics, setting thresholds, handling false positives.
    - Use cases: Applications requiring real-time feedback and rapid response to potential issues.
 
-   ![Cluster Immune System](/assets/ClusterImmuneSystem.png){:height="700px" width="400px"}
+   ![Cluster Immune System](/assets/ClusterImmuneSystemV2.png){:height="700px" width="400px"}
 
-5. **Feature Toggle (a.k.a. feature flag, feature switch)**
+6. **Feature Toggle (a.k.a. feature flag, feature switch)**
 
    Enables or disables features dynamically using configuration flags, offering flexibility and control.
    - Pros: Gradual feature rollout, A/B testing, safer deployments.

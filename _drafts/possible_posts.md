@@ -4,6 +4,7 @@ title:  "Possible themas for future possible posts"
 ---
 
 Possible themes:
+- Convert a csv file into parquet format with help of pandas and pyarrow (string dtype)
 - Zero downtime and ALB ingress controller
 [1](https://github.com/kubernetes-sigs/aws-load-balancer-controller/blob/master/docs/guide/ingress/pod-conditions.md)
 [2](https://aws.github.io/aws-eks-best-practices/networking/loadbalancing/loadbalancing/)

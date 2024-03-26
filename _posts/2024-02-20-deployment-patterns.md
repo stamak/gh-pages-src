@@ -80,5 +80,9 @@ Understanding different deployment patterns is crucial for DevOps and Architects
 
 ## Additional Resources
 
-- The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations by Gene Kim, Patrick Debois, John Willis, and Jez Humble.
+- [The DevOps Handbook:][devops-handbook] How to Create World-Class Agility, Reliability, and Security in Technology Organizations by Gene Kim, Patrick Debois, John Willis, and Jez Humble
+- **Google Cloud Architecture Center:** [Application deployment and testing strategies][gcp]
+- [Practicing Continuous Integration and Continuous Delivery on AWS](https://docs.aws.amazon.com/whitepapers/latest/practicing-continuous-integration-continuous-delivery/deployment-methods.html)
 
+[gcp]: https://cloud.google.com/architecture/application-deployment-and-testing-strategies
+[devops-handbook]: https://itrevolution.com/product/the-devops-handbook-second-edition/

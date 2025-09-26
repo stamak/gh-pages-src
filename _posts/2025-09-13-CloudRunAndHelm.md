@@ -171,3 +171,6 @@ For a complete example, see this [GitHub repository](https://github.com/stamak/c
 ## Conclusion
 While the gcloud CLI is an excellent tool for quick and simple deployments, it can quickly become unwieldy for complex, multi-service applications. By adopting a declarative YAML approach, you gain some control, but for true enterprise-scale needs, Helm provides the ultimate solution. By adopting Helm, you can transform your Cloud Run deployments into a declarative, version-controlled, and repeatable process. This not only streamlines your CI/CD pipeline but also ensures consistency across all your environments, saving you time and headaches in the long run.
 
+---
+
+*This article was written with the assistance of Generative AI.*
